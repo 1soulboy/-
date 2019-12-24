@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>跑马灯</title>
+    <style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    
+    #wrap{
+        width:1000px;
+        margin:200px auto;
+        border:2px solid yellow;
+        white-space: nowrap;
+        overflow: hidden;
+        padding: 20px;
+        color: #f1c1f6;
+        background-color: black;
+    }
+
+    #wrap div{
+        display: inline-block;
+        font-size: 20px;
+    }
+    #wrap span{
+        font-size: 20px;
+        color:red;
+    }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="first">
+           <span>周星驰：</span>曾经有一份真诚的爱情放在我面前，我没有珍惜，等我失去的时候我才后悔莫及，人世间最痛苦的事莫过于此。
+            如果上天能够给我一个再来一次的机会，我会对那个女孩子说三个字：我爱你。
+            如果非要在这份爱上加上一个期限，我希望是……
+            一万年
+        </div>
+      <div>
+            <span>周星驰：</span>曾经有一份真诚的爱情放在我面前，我没有珍惜，等我失去的时候我才后悔莫及，人世间最痛苦的事莫过于此。
+            如果上天能够给我一个再来一次的机会，我会对那个女孩子说三个字：我爱你。
+            如果非要在这份爱上加上一个期限，我希望是……
+            一万年
+        </div> 
+    </div>
+
+    <script>
+
+(function () {
+        wrap = document.getElementById('wrap'), first = document.getElementById('first');/*获取对象标签*/
+        var timer = window.setInterval(move, 5);/*使一段代码每过指定时间就运行一次*/
+        wrap.onmouseover = function () {
+            window.clearInterval(timer);/*鼠标滑入停止timer方法*/
+        }
+        wrap.onmouseout = function () {
+            timer = window.setInterval(move, 5);
+        }
+        function move() {
+            wrap.scrollLeft++;/*让最大的div往左移动*/
+            if (wrap.scrollLeft>= first.scrollWidth) {/*当最大div移动像素大于等于first div长度时清零重新开始*/
+                wrap.scrollLeft = 0;
+            }
+        }
+    })();
+
+    </script>
+</body>
+</html>

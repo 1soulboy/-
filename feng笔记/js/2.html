@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text"  id="dates"><br>
+    <input type="submit" value="获取时间" onclick="time1()"><br>
+    <span id="show" style="background-color: red;"></span>
+
+    <script>
+        function time1(){
+        var  nowDate =new Date();
+        var  year=nowDate.getFullYear();
+                month = nowDate.getMonth()+1;
+                day = nowDate.getDate();
+                hour =nowDate.getHours();
+                min =nowDate.getMinutes();
+                sec=nowDate.getSeconds();
+                // alert(year+'-'+month+'-'+day+'   '+hour+':'+min+':'+sec);
+        var  str=dates.value;
+        switch(str){
+                case "yy":
+                    show.innerHTML=str.replace(/yy/,year);
+                    break;
+                 case "yy-mm":
+                   show.innerHTML=str.replace(/yy-mm/, year+'-'+month);
+                   break;
+                case "yy-mm-dd":
+                    show.innerHTML=str.replace(/yy-mm-dd/, year+"-"+month+"-"+day);
+                    break;
+                case "yy-mm-dd  hh":
+                    show.innerHTML=str.replace(/yy-mm-dd  hh/, year+"-"+month+"-"+day+" -- "+hour);
+                    break;
+                case "yy-mm-dd  hh:mm":
+                    show.innerHTML=str.replace(/yy-mm-dd  hh:mm/, year+"-"+month+"-"+day+"-- "+hour+":"+min);
+                    break;
+                case "yy-mm-dd  hh:mm:ss":
+                    show.innerHTML=str.replace(/yy-mm-dd  hh:mm:ss/, year+"-"+month+"-"+day+"  "+hour+":"+min+":"+sec);
+                    break;
+                default:
+                    show.innerHTML="输入的格式有误，请按规定输入";
+                    break;
+        }
+}
+    </script>
+</body>
+</html>
